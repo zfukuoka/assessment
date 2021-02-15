@@ -16,7 +16,7 @@
     }
 
     assessmentButton.onclick = () => {
-        const userName = userNameInput.nodeValue;
+        const userName = userNameInput.value;
         if (userName.length === 0) {
             return;
         }
@@ -25,6 +25,7 @@
         removeAllChildlen(resultDivided);
         const header = document.createElement('h3');
         header.innerText = '診断結果';
+        resultDivided.appendChild(header);
 
         const paragraph = document.createElement('p');
         const result = assessment(userName);
@@ -37,7 +38,7 @@
         const hrefValue = 'https://twitter.com/intent/tweet?button_hashtag=%E3%81%82%E3%81%AA%E3%81%9F%E3%81%AE%E3%81%84%E3%81%84%E3%81%A8%E3%81%93%E3%82%8D&text=' + encodeURIComponent(result);
         anchor.setAttribute('href', hrefValue);
         anchor.className = 'twitter-hashtag-button';
-        anchor.innerText = 'Twitter #%E3%81%82%E3%81%AA%E3%81%9F%E3%81%AE%E3%81%84%E3%81%A8%E3%81%93%E3%82%8D';
+        anchor.innerText = 'Twitt #%E3%81%82%E3%81%AA%E3%81%9F%E3%81%AE%E3%81%84%E3%81%A8%E3%81%93%E3%82%8D';
         tweetDivided.appendChild(anchor);
         
         twttr.widgets.load()
